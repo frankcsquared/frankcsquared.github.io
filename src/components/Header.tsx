@@ -5,6 +5,16 @@ import { cn } from "@/lib/utils";
 const Header = () => {
   const location = useLocation();
 
+  const handleTranslateClick = () => {
+    const combo = document.querySelector<HTMLSelectElement>(
+      "#google_translate_element select.goog-te-combo"
+    );
+
+    if (combo) {
+      combo.focus();
+      combo.click();
+    }
+  };
   const navLinks = [
     { to: "/", label: "About" },
     { to: "/types-of-cancer", label: "Types of Cancer" },
@@ -28,8 +38,11 @@ const Header = () => {
           </Link>
           
           <div className="flex items-center gap-4">
-            <div className="hidden sm:flex items-center gap-2 relative z-50">
-              <Globe className="h-4 w-4 text-primary pointer-events-none" />
+            <div
+              className="hidden sm:flex items-center gap-2 relative z-50 cursor-pointer rounded-md border border-border bg-background px-3 py-1 text-xs font-medium shadow-sm"
+              onClick={handleTranslateClick}
+            >
+              <Globe className="h-4 w-4 text-primary" />
               <div id="google_translate_element" className="relative z-50"></div>
             </div>
             

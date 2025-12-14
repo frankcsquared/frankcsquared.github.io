@@ -11,8 +11,8 @@
 
 #google_translate_element .goog-te-gadget {
   font-family: inherit;
-  font-size: 0;
-  color: transparent;
+  font-size: 0.875rem;
+  color: hsl(var(--foreground));
 }
 
 #google_translate_element .goog-te-gadget-simple {
@@ -82,9 +82,7 @@ body {
   display: none !important;
 }
 
-#google_translate_element .goog-te-gadget span {
-  display: none !important;
-}
+/* Keep Google Translate text visible for better usability */
 
 #google_translate_element .goog-te-combo {
   display: inline-block !important;
