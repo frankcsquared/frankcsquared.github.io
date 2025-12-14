@@ -12,6 +12,7 @@ const TypesOfCancer = () => {
       resources: [
         { lang: "English", flag: "🇺🇸", pdf: "/pdfs/breast-cancer-en.pdf" },
         { lang: "Français", flag: "🇫🇷", pdf: "/pdfs/breast-cancer-fr.pdf" },
+        { lang: "中文", flag: "🇨🇳", pdf: "/pdfs/breast-cancer-zh.pdf" },
       ]
     },
     { name: "Lung Cancer", description: "Cancer that begins in the lungs, often associated with smoking but can occur in non-smokers." },
