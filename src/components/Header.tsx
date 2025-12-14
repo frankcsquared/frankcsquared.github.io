@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Heart, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -5,16 +6,38 @@ import { cn } from "@/lib/utils";
 const Header = () => {
   const location = useLocation();
 
-  const handleLanguageChange = (event: any) => {
-    const lang = event.target.value;
-    if (!lang) return;
+  useEffect(() => {
+    const initGoogleTranslate = () => {
+      const google = (window as any).google;
+      const element = document.getElementById("google_translate_element");
 
-    const pageUrl = window.location.href;
-    const translateUrl = `https://translate.google.com/translate?sl=en&tl=${lang}&u=${encodeURIComponent(pageUrl)}`;
+      if (google && google.translate && element && element.innerHTML.trim() === "") {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages:
+              "en,es,fr,de,it,pt,ru,ja,ko,zh-CN,zh-TW,ar,hi,vi,th,pl,nl,tr,id,fa,tl",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+            multilanguagePage: true,
+          },
+          "google_translate_element"
+        );
+      }
+    };
 
-    window.open(translateUrl, "_blank");
-    event.target.value = "";
-  };
+    let attempts = 0;
+    const interval = window.setInterval(() => {
+      attempts += 1;
+      initGoogleTranslate();
+      if ((window as any).google || attempts > 20) {
+        window.clearInterval(interval);
+      }
+    }, 500);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
   const navLinks = [
     { to: "/", label: "About" },
     { to: "/types-of-cancer", label: "Types of Cancer" },
@@ -40,22 +63,7 @@ const Header = () => {
           <div className="flex items-center gap-4">
             <div className="hidden sm:flex items-center gap-2 relative z-50">
               <Globe className="h-4 w-4 text-primary" />
-              <select
-                defaultValue=""
-                onChange={handleLanguageChange}
-                className="text-xs font-medium border border-border rounded-md px-2 py-1 bg-background shadow-sm cursor-pointer"
-              >
-                <option value="" disabled>
-                  Translate
-                </option>
-                <option value="es">Español</option>
-                <option value="fr">Français</option>
-                <option value="zh-CN">中文 (简体)</option>
-                <option value="ar">العربية</option>
-                <option value="hi">हिन्दी</option>
-                <option value="pt">Português</option>
-                <option value="ru">Русский</option>
-              </select>
+              <div id="google_translate_element" className="relative z-50"></div>
             </div>
             
             <nav className="hidden md:flex items-center gap-1">
