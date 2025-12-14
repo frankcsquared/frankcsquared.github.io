@@ -1,11 +1,19 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const TypesOfCancer = () => {
   const solidTumors = [
-    { name: "Breast Cancer", description: "Cancer that forms in breast tissue, one of the most common cancers worldwide." },
+    { 
+      name: "Breast Cancer", 
+      description: "Cancer that forms in breast tissue, one of the most common cancers worldwide.",
+      resources: [
+        { lang: "English", flag: "🇺🇸", pdf: "/pdfs/breast-cancer-en.pdf" },
+        { lang: "Français", flag: "🇫🇷", pdf: "/pdfs/breast-cancer-fr.pdf" },
+      ]
+    },
     { name: "Lung Cancer", description: "Cancer that begins in the lungs, often associated with smoking but can occur in non-smokers." },
     { name: "Colorectal Cancer", description: "Cancer of the colon or rectum, often developing from polyps in the intestinal lining." },
     { name: "Prostate Cancer", description: "Cancer in the prostate gland, one of the most common cancers in men." },
@@ -70,6 +78,22 @@ const TypesOfCancer = () => {
                       </CardHeader>
                       <CardContent>
                         <CardDescription className="text-base">{tumor.description}</CardDescription>
+                        {tumor.resources && (
+                          <div className="mt-4 flex flex-wrap gap-2">
+                            {tumor.resources.map((resource) => (
+                              <Button
+                                key={resource.lang}
+                                variant="outline"
+                                size="sm"
+                                onClick={() => window.open(resource.pdf, '_blank')}
+                                className="gap-2"
+                              >
+                                <span>{resource.flag}</span>
+                                <span>{resource.lang}</span>
+                              </Button>
+                            ))}
+                          </div>
+                        )}
                       </CardContent>
                     </Card>
                   ))}
