@@ -73,12 +73,14 @@ const FloatingTranslateButton = () => {
 
   return (
     <div ref={containerRef} className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
-      {isOpen && (
-        <div className="bg-background border border-border rounded-lg shadow-xl p-3 min-w-[200px]">
-          <p className="text-sm font-medium text-foreground mb-2">Select Language:</p>
-          <div id="floating_translate_element" />
-        </div>
-      )}
+      <div 
+        className={`bg-background border border-border rounded-lg shadow-xl p-3 min-w-[220px] transition-all ${
+          isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
+        }`}
+      >
+        <p className="text-sm font-medium text-foreground mb-2">Select Language:</p>
+        <div id="floating_translate_element" />
+      </div>
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
