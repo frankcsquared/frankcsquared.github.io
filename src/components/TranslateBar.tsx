@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Globe } from "lucide-react";
 
-const FloatingTranslate = () => {
+const TranslateBar = () => {
   useEffect(() => {
     const initGoogleTranslate = () => {
       const google = (window as any).google;
@@ -10,8 +10,6 @@ const FloatingTranslate = () => {
       if (!google || !google.translate || !element || element.innerHTML.trim() !== "") {
         return;
       }
-
-      console.log("[FloatingTranslate] Initializing Google Translate widget");
 
       new google.translate.TranslateElement(
         {
@@ -26,32 +24,15 @@ const FloatingTranslate = () => {
       );
     };
 
-    const updateBannerOffset = () => {
-      const bannerFrame = document.querySelector(
-        ".goog-te-banner-frame.skiptranslate"
-      ) as HTMLIFrameElement | null;
-
-      if (bannerFrame) {
-        document.body.classList.add("google-translate-active");
-      } else {
-        document.body.classList.remove("google-translate-active");
-      }
-    };
-
     const loadScriptAndInit = () => {
       if ((window as any).google && (window as any).google.translate) {
-        console.log("[FloatingTranslate] Google script already loaded");
         initGoogleTranslate();
         return;
       }
 
       if (!document.querySelector("script[data-google-translate]")) {
-        console.log("[FloatingTranslate] Injecting Google Translate script");
-
         (window as any).googleTranslateElementInit = () => {
-          console.log("[FloatingTranslate] googleTranslateElementInit callback");
           initGoogleTranslate();
-          updateBannerOffset();
         };
 
         const script = document.createElement("script");
@@ -65,24 +46,15 @@ const FloatingTranslate = () => {
     };
 
     loadScriptAndInit();
-
-    const interval = window.setInterval(updateBannerOffset, 1000);
-
-    return () => {
-      window.clearInterval(interval);
-      document.body.classList.remove("google-translate-active");
-    };
   }, []);
 
   return (
-    <div
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-card border border-border rounded-full px-4 py-3 shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
-      aria-label="Translate this page"
-    >
-      <Globe className="h-5 w-5 text-primary" />
+    <div className="w-full bg-primary text-primary-foreground py-2 px-4 flex items-center justify-center gap-2 text-sm">
+      <Globe className="h-4 w-4" />
+      <span className="font-medium">Translate this page:</span>
       <div id="google_translate_element" className="relative" />
     </div>
   );
 };
 
-export default FloatingTranslate;
+export default TranslateBar;

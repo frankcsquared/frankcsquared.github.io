@@ -196,8 +196,4 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
-
-  body.google-translate-active .site-header {
-    top: 40px;
-  }
 }

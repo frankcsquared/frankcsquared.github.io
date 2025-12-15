@@ -9,7 +9,7 @@ import Treatments from "./pages/Treatments";
 import Screening from "./pages/Screening";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import FloatingTranslate from "./components/FloatingTranslate";
+import TranslateBar from "./components/TranslateBar";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +19,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <TranslateBar />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/types-of-cancer" element={<TypesOfCancer />} />
@@ -28,7 +29,6 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <FloatingTranslate />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
