@@ -21,6 +21,8 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <TranslateBar />
+        {/* Spacer for fixed TranslateBar (h-10) + Header (h-16) = 104px total */}
+        <div className="h-[104px]" />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/types-of-cancer" element={<TypesOfCancer />} />
