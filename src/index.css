@@ -77,17 +77,8 @@
   background: hsl(var(--background)) !important;
 }
 
-/* Fix the floating dropdown that appears above the bar */
-.VIpgJd-ZVi9od-ORHb-OEVmcd {
-  display: none !important;
-}
-
-.VIpgJd-ZVi9od-xl07Ob-lTBxed {
-  display: none !important;
-}
-
-/* Hide the external language selector popup */
-div.skiptranslate.goog-te-gadget {
+/* Style the select dropdown to appear inline */
+#google_translate_element .goog-te-gadget > span {
   display: inline-flex !important;
   align-items: center !important;
 }
