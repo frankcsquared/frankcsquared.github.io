@@ -49,7 +49,7 @@ const TranslateBar = () => {
   }, []);
 
   return (
-    <div className="w-full bg-primary text-primary-foreground py-2 px-4 flex items-center justify-center gap-2 text-sm">
+    <div className="sticky top-0 z-50 w-full bg-primary text-primary-foreground py-2 px-4 flex items-center justify-center gap-2 text-sm">
       <Globe className="h-4 w-4" />
       <span className="font-medium">Translate this page:</span>
       <div id="google_translate_element" className="relative" />
