@@ -34,11 +34,32 @@ const FloatingTranslate = () => {
     return () => window.clearInterval(interval);
   }, []);
 
+  const handleClick = () => {
+    const select = document.querySelector(
+      "#google_translate_element select.goog-te-combo"
+    ) as HTMLSelectElement | null;
+
+    if (select) {
+      select.focus();
+      const event = new MouseEvent("mousedown", {
+        bubbles: true,
+        cancelable: true,
+        view: window,
+      });
+      select.dispatchEvent(event);
+    }
+  };
+
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-card border border-border rounded-full px-4 py-3 shadow-lg hover:shadow-xl transition-shadow">
+    <button
+      type="button"
+      onClick={handleClick}
+      className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-card border border-border rounded-full px-4 py-3 shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
+      aria-label="Translate this page"
+    >
       <Globe className="h-5 w-5 text-primary" />
       <div id="google_translate_element" className="relative"></div>
-    </div>
+    </button>
   );
 };
 
