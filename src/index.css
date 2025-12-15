@@ -2,83 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Google Translate Widget Styling */
-#google_translate_element {
-  display: inline-block;
-  position: relative;
-  z-index: 9999;
+/* Google Translate Widget Styling for Floating Button */
+#floating_translate_element {
+  display: block;
 }
 
-#google_translate_element .goog-te-gadget {
+#floating_translate_element .goog-te-gadget {
   font-family: inherit;
   font-size: 0.875rem;
-  color: hsl(var(--primary-foreground)) !important;
-  display: inline-flex;
-  align-items: center;
-  vertical-align: middle;
+  color: hsl(var(--foreground)) !important;
 }
 
-#google_translate_element .goog-te-gadget-simple {
-  background-color: transparent !important;
-  border: none !important;
-  padding: 0 !important;
-  font-size: 14px;
-  position: relative;
-  z-index: 9999;
-}
-
-#google_translate_element .goog-te-gadget-simple .goog-te-menu-value {
-  color: hsl(var(--primary-foreground)) !important;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-#google_translate_element .goog-te-gadget-simple .goog-te-menu-value span {
-  color: hsl(var(--primary-foreground)) !important;
-  border: none;
-  cursor: pointer;
-}
-
-#google_translate_element .goog-te-gadget-simple .goog-te-menu-value span:nth-child(3) {
-  border-left-color: hsl(var(--primary-foreground)) !important;
-}
-
-#google_translate_element select.goog-te-combo {
-  border: 1px solid hsl(var(--primary-foreground) / 0.3) !important;
-  background: transparent !important;
-  color: hsl(var(--primary-foreground)) !important;
-  padding: 2px 8px !important;
-  border-radius: 4px !important;
+#floating_translate_element select.goog-te-combo {
+  border: 1px solid hsl(var(--border)) !important;
+  background: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
   font-size: 14px !important;
   cursor: pointer !important;
-  min-width: 140px !important;
-  margin-left: 8px !important;
+  width: 100% !important;
+  min-width: 180px !important;
 }
 
-#google_translate_element select.goog-te-combo option {
+#floating_translate_element select.goog-te-combo option {
   background: hsl(var(--background)) !important;
   color: hsl(var(--foreground)) !important;
 }
 
-/* Google Translate dropdown menu - position it inline */
+/* Google Translate dropdown menu */
 .goog-te-menu-frame {
   z-index: 99999 !important;
   background: hsl(var(--background)) !important;
   border: 1px solid hsl(var(--border)) !important;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  position: fixed !important;
-  top: 40px !important;
 }
 
 .goog-te-menu2 {
   z-index: 99999 !important;
   background: hsl(var(--background)) !important;
-}
-
-/* Style the select dropdown to appear inline */
-#google_translate_element .goog-te-gadget > span {
-  display: inline-flex !important;
-  align-items: center !important;
 }
 
 /* Hide Google Translate banner */
@@ -97,14 +59,12 @@ body {
 }
 
 /* Hide "Powered by" text */
-#google_translate_element .goog-logo-link {
+#floating_translate_element .goog-logo-link {
   display: none !important;
 }
 
-/* Keep Google Translate text visible for better usability */
-
-#google_translate_element .goog-te-combo {
-  display: inline-block !important;
+#floating_translate_element .goog-te-gadget > span {
+  display: none !important;
 }
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
