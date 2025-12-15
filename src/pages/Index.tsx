@@ -11,12 +11,18 @@ const Index = () => {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-gradient-to-br from-primary to-primary/80 py-20 sm:py-28">
-          {/* Animated background elements */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute -top-24 -left-24 h-64 w-64 rounded-full bg-primary-foreground/5 animate-float-1" />
-            <div className="absolute top-1/2 -right-32 h-96 w-96 rounded-full bg-primary-foreground/5 animate-float-2" />
-            <div className="absolute -bottom-16 left-1/4 h-48 w-48 rounded-full bg-primary-foreground/5 animate-float-3" />
-            <div className="absolute top-1/4 left-1/2 h-32 w-32 rounded-full bg-primary-foreground/3 animate-float-1 [animation-delay:2s]" />
+          {/* Animated background text in different languages */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
+            <span className="absolute top-8 left-[5%] text-2xl font-light text-primary-foreground/10 animate-float-1">希望</span>
+            <span className="absolute top-16 right-[10%] text-xl font-light text-primary-foreground/10 animate-float-2">Esperanza</span>
+            <span className="absolute top-1/3 left-[8%] text-3xl font-light text-primary-foreground/10 animate-float-3">Santé</span>
+            <span className="absolute top-1/4 right-[15%] text-lg font-light text-primary-foreground/10 animate-float-1 [animation-delay:1s]">Gesundheit</span>
+            <span className="absolute bottom-1/3 left-[12%] text-xl font-light text-primary-foreground/10 animate-float-2 [animation-delay:2s]">Cuidado</span>
+            <span className="absolute bottom-1/4 right-[8%] text-2xl font-light text-primary-foreground/10 animate-float-3 [animation-delay:1.5s]">شفاء</span>
+            <span className="absolute top-1/2 left-[3%] text-lg font-light text-primary-foreground/10 animate-float-1 [animation-delay:3s]">Speranza</span>
+            <span className="absolute bottom-16 left-[20%] text-xl font-light text-primary-foreground/10 animate-float-2 [animation-delay:0.5s]">治療</span>
+            <span className="absolute top-20 left-[40%] text-lg font-light text-primary-foreground/10 animate-float-3 [animation-delay:2.5s]">Надежда</span>
+            <span className="absolute bottom-20 right-[20%] text-2xl font-light text-primary-foreground/10 animate-float-1 [animation-delay:1.2s]">आशा</span>
           </div>
           
           <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
