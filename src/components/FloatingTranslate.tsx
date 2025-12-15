@@ -26,7 +26,21 @@ const FloatingTranslate = () => {
       );
     };
 
+    const injectHideBannerStyles = () => {
+      if (document.getElementById("google-translate-hide-banner")) return;
+
+      const style = document.createElement("style");
+      style.id = "google-translate-hide-banner";
+      style.innerHTML = `
+        .goog-te-banner-frame.skiptranslate { display: none !important; }
+        body { top: 0 !important; position: static !important; }
+      `;
+      document.head.appendChild(style);
+    };
+
     const loadScriptAndInit = () => {
+      injectHideBannerStyles();
+
       if ((window as any).google && (window as any).google.translate) {
         console.log("[FloatingTranslate] Google script already loaded");
         initGoogleTranslate();
