@@ -35,18 +35,15 @@ const FloatingTranslate = () => {
   }, []);
 
   const handleClick = () => {
-    const select = document.querySelector(
-      "#google_translate_element select.goog-te-combo"
-    ) as HTMLSelectElement | null;
+    const trigger = document.querySelector(
+      "#google_translate_element .goog-te-gadget-simple"
+    ) as HTMLElement | null;
 
-    if (select) {
-      select.focus();
-      const event = new MouseEvent("mousedown", {
-        bubbles: true,
-        cancelable: true,
-        view: window,
-      });
-      select.dispatchEvent(event);
+    if (trigger) {
+      console.log("[FloatingTranslate] trigger found, clicking");
+      trigger.click();
+    } else {
+      console.log("[FloatingTranslate] trigger NOT found");
     }
   };
 
