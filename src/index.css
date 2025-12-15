@@ -62,17 +62,34 @@
   color: hsl(var(--foreground)) !important;
 }
 
-/* Google Translate dropdown menu */
+/* Google Translate dropdown menu - position it inline */
 .goog-te-menu-frame {
   z-index: 99999 !important;
   background: hsl(var(--background)) !important;
   border: 1px solid hsl(var(--border)) !important;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  position: fixed !important;
+  top: 40px !important;
 }
 
 .goog-te-menu2 {
   z-index: 99999 !important;
   background: hsl(var(--background)) !important;
+}
+
+/* Fix the floating dropdown that appears above the bar */
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+  display: none !important;
+}
+
+.VIpgJd-ZVi9od-xl07Ob-lTBxed {
+  display: none !important;
+}
+
+/* Hide the external language selector popup */
+div.skiptranslate.goog-te-gadget {
+  display: inline-flex !important;
+  align-items: center !important;
 }
 
 /* Hide Google Translate banner */
