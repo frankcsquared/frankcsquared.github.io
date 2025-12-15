@@ -9,6 +9,7 @@ import Treatments from "./pages/Treatments";
 import Screening from "./pages/Screening";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import FloatingTranslate from "./components/FloatingTranslate";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <FloatingTranslate />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

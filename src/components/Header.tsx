@@ -1,42 +1,9 @@
-import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Heart, Globe } from "lucide-react";
+import { Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Header = () => {
   const location = useLocation();
-
-  useEffect(() => {
-    const initGoogleTranslate = () => {
-      const google = (window as any).google;
-      const element = document.getElementById("google_translate_element");
-
-      if (google && google.translate && element && element.innerHTML.trim() === "") {
-        new google.translate.TranslateElement(
-          {
-            pageLanguage: "en",
-            includedLanguages:
-              "en,es,fr,de,it,pt,ru,ja,ko,zh-CN,zh-TW,ar,hi,vi,th,pl,nl,tr,id,fa,tl",
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false,
-            multilanguagePage: true,
-          },
-          "google_translate_element"
-        );
-      }
-    };
-
-    let attempts = 0;
-    const interval = window.setInterval(() => {
-      attempts += 1;
-      initGoogleTranslate();
-      if ((window as any).google || attempts > 20) {
-        window.clearInterval(interval);
-      }
-    }, 500);
-
-    return () => window.clearInterval(interval);
-  }, []);
 
   const navLinks = [
     { to: "/", label: "About" },
@@ -60,13 +27,7 @@ const Header = () => {
             </div>
           </Link>
           
-          <div className="flex items-center gap-4">
-            <div className="hidden sm:flex items-center gap-2 relative z-50">
-              <Globe className="h-4 w-4 text-primary" />
-              <div id="google_translate_element" className="relative z-50"></div>
-            </div>
-            
-            <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
@@ -82,7 +43,6 @@ const Header = () => {
               </Link>
             ))}
           </nav>
-          </div>
 
           <nav className="flex md:hidden">
             <select
