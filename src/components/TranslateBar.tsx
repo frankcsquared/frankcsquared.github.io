@@ -83,11 +83,47 @@ const TranslateBar = () => {
   }, []);
 
   return (
-    <div className="sticky top-0 z-50 w-full bg-primary text-primary-foreground py-2 px-4 flex items-center justify-center gap-2 text-sm">
-      <Globe className="h-4 w-4" />
-      <span className="font-medium">Translate this page:</span>
-      <div id="google_translate_element" className="relative" />
-    </div>
+    <>
+      <style>{`
+        .goog-te-combo {
+          padding: 4px 8px;
+          border-radius: 4px;
+          border: 1px solid rgba(255,255,255,0.3);
+          background: rgba(255,255,255,0.1);
+          color: white;
+          font-size: 14px;
+          cursor: pointer;
+        }
+        .goog-te-combo:focus {
+          outline: none;
+          border-color: white;
+        }
+        .goog-te-gadget {
+          font-family: inherit !important;
+          font-size: 14px !important;
+        }
+        .goog-te-gadget > span {
+          display: none !important;
+        }
+        .goog-te-banner-frame {
+          display: none !important;
+        }
+        body {
+          top: 0 !important;
+        }
+        .skiptranslate {
+          display: none !important;
+        }
+        #google_translate_element .skiptranslate {
+          display: block !important;
+        }
+      `}</style>
+      <div className="sticky top-0 z-[9999] w-full bg-primary text-primary-foreground py-2 px-4 flex items-center justify-center gap-2 text-sm">
+        <Globe className="h-4 w-4" />
+        <span className="font-medium">Translate this page:</span>
+        <div id="google_translate_element" className="relative z-[9999]" />
+      </div>
+    </>
   );
 };
 
