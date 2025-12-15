@@ -11,7 +11,15 @@ const Index = () => {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-gradient-to-br from-primary to-primary/80 py-20 sm:py-28">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Animated background elements */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute -top-24 -left-24 h-64 w-64 rounded-full bg-primary-foreground/5 animate-[pulse_8s_ease-in-out_infinite]" />
+            <div className="absolute top-1/2 -right-32 h-96 w-96 rounded-full bg-primary-foreground/5 animate-[pulse_10s_ease-in-out_infinite_1s]" />
+            <div className="absolute -bottom-16 left-1/4 h-48 w-48 rounded-full bg-primary-foreground/5 animate-[pulse_7s_ease-in-out_infinite_2s]" />
+            <div className="absolute top-1/4 left-1/2 h-32 w-32 rounded-full bg-primary-foreground/3 animate-[pulse_9s_ease-in-out_infinite_0.5s]" />
+          </div>
+          
+          <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
               <h1 className="mb-6 text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl lg:text-6xl">
                 Translate Oncology Initiative
