@@ -49,31 +49,17 @@
   z-index: 9999;
 }
 
-/* Google Translate dropdown menu - position below header */
+/* Google Translate dropdown menu */
 .goog-te-menu-frame {
   z-index: 99999 !important;
-  position: fixed !important;
-  top: 64px !important;
-  max-height: calc(100vh - 80px) !important;
-  overflow-y: auto !important;
-  background: white !important;
-  border: 1px solid #e5e7eb !important;
-  border-radius: 0.5rem !important;
-  box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1) !important;
+  background: hsl(var(--background)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 .goog-te-menu2 {
   z-index: 99999 !important;
-  background: white !important;
-  padding: 0.5rem 0 !important;
-}
-
-.goog-te-menu2-item {
-  padding: 0.5rem 1rem !important;
-}
-
-.goog-te-menu2-item:hover {
-  background: #f3f4f6 !important;
+  background: hsl(var(--background)) !important;
 }
 
 /* Hide Google Translate banner */
