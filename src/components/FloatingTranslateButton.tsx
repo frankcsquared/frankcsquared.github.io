@@ -2,17 +2,22 @@ import { Globe } from "lucide-react";
 
 const FloatingTranslateButton = () => {
   const handleClick = () => {
+    console.log("[FloatingTranslateButton] Clicked");
+
     window.scrollTo({ top: 0, behavior: "smooth" });
-    
+
     setTimeout(() => {
       const select = document.querySelector(
         "#google_translate_element select.goog-te-combo"
       ) as HTMLSelectElement | null;
-      
+
       if (select) {
+        console.log("[FloatingTranslateButton] Found Google Translate select, focusing");
         select.focus();
+      } else {
+        console.warn("[FloatingTranslateButton] Google Translate select not found");
       }
-    }, 300);
+    }, 600);
   };
 
   return (
