@@ -13,6 +13,10 @@ const TypesOfCancer = () => {
         { lang: "English", flag: "🇺🇸", pdf: "/pdfs/breast-cancer-en.pdf" },
         { lang: "Français", flag: "🇫🇷", pdf: "/pdfs/breast-cancer-fr.pdf" },
         { lang: "中文", flag: "🇨🇳", pdf: "/pdfs/breast-cancer-zh.pdf" },
+        { lang: "العربية", flag: "🇸🇦", pdf: "/pdfs/breast-cancer-ar.pdf" },
+        { lang: "हिन्दी", flag: "🇮🇳", pdf: "/pdfs/breast-cancer-hi.pdf" },
+        { lang: "ਪੰਜਾਬੀ", flag: "🇮🇳", pdf: "/pdfs/breast-cancer-pa.pdf" },
+        { lang: "Tagalog", flag: "🇵🇭", pdf: "/pdfs/breast-cancer-tl.pdf" },
       ]
     },
     { 
