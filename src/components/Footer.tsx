@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="flex items-center gap-2">
             <Heart className="h-5 w-5 text-primary" fill="currentColor" />
             <span className="text-sm text-muted-foreground">
-              © 2024 Translate Oncology Initiative. All rights reserved.
+              © 2025 Translate Oncology Initiative. All rights reserved.
             </span>
           </div>
           <div className="text-sm text-muted-foreground">
