@@ -110,8 +110,8 @@ const Contact = () => {
                       <Mail className="mt-1 h-5 w-5 text-primary" />
                       <div>
                         <p className="font-semibold text-foreground">General Inquiries</p>
-                        <a href="mailto:info@translateoncology.org" className="text-primary hover:underline">
-                          info@translateoncology.org
+                        <a href="mailto:info@translateoncology.ca" className="text-primary hover:underline">
+                          info@translateoncology.ca
                         </a>
                       </div>
                     </div>
@@ -120,8 +120,8 @@ const Contact = () => {
                       <Users className="mt-1 h-5 w-5 text-primary" />
                       <div>
                         <p className="font-semibold text-foreground">Research Collaborations</p>
-                        <a href="mailto:research@translateoncology.org" className="text-primary hover:underline">
-                          research@translateoncology.org
+                        <a href="mailto:research@translateoncology.ca" className="text-primary hover:underline">
+                          research@translateoncology.ca
                         </a>
                       </div>
                     </div>
@@ -130,8 +130,8 @@ const Contact = () => {
                       <Building2 className="mt-1 h-5 w-5 text-primary" />
                       <div>
                         <p className="font-semibold text-foreground">Institutional Partnerships</p>
-                        <a href="mailto:partnerships@translateoncology.org" className="text-primary hover:underline">
-                          partnerships@translateoncology.org
+                        <a href="mailto:partnerships@translateoncology.ca" className="text-primary hover:underline">
+                          partnerships@translateoncology.ca
                         </a>
                       </div>
                     </div>
