@@ -1,9 +1,28 @@
 import { useEffect, useState, useRef } from "react";
 import { Globe, ChevronUp } from "lucide-react";
 
+const translations = [
+  "Translate",
+  "Traducir",
+  "翻译",
+  "Traduire",
+  "ترجمة",
+  "अनुवाद",
+  "ਅਨੁਵਾਦ",
+  "Isalin",
+];
+
 const FloatingTranslateButton = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [currentLangIndex, setCurrentLangIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentLangIndex((prev) => (prev + 1) % translations.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const initGoogleTranslate = () => {
@@ -88,7 +107,9 @@ const FloatingTranslateButton = () => {
         aria-label="Translate this page"
       >
         <Globe className="h-5 w-5" />
-        <span className="text-sm font-medium">Translate</span>
+        <span className="text-sm font-medium min-w-[60px] text-center transition-all duration-300">
+          {translations[currentLangIndex]}
+        </span>
         <ChevronUp className={`h-4 w-4 transition-transform ${isOpen ? "" : "rotate-180"}`} />
       </button>
     </div>

@@ -1,9 +1,29 @@
+import { useEffect, useState } from "react";
 import { BookOpen, Users, Microscope, Heart } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
+const bannerMessages = [
+  { text: "Bridging research and practice to improve cancer care worldwide", lang: "English" },
+  { text: "Uniendo investigación y práctica para mejorar la atención oncológica", lang: "Español" },
+  { text: "架起研究与实践的桥梁，改善全球癌症护理", lang: "中文" },
+  { text: "Relier la recherche et la pratique pour améliorer les soins du cancer", lang: "Français" },
+  { text: "ربط البحث والممارسة لتحسين رعاية مرضى السرطان", lang: "العربية" },
+  { text: "कैंसर देखभाल में सुधार के लिए अनुसंधान और अभ्यास को जोड़ना", lang: "हिन्दी" },
+  { text: "ਕੈਂਸਰ ਦੀ ਦੇਖਭਾਲ ਵਿੱਚ ਸੁਧਾਰ ਲਈ ਖੋਜ ਅਤੇ ਅਭਿਆਸ ਨੂੰ ਜੋੜਨਾ", lang: "ਪੰਜਾਬੀ" },
+  { text: "Pag-uugnay ng pananaliksik at praktika upang mapabuti ang pangangalaga sa kanser", lang: "Tagalog" },
+];
+
 const Index = () => {
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentMessageIndex((prev) => (prev + 1) % bannerMessages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
@@ -30,9 +50,14 @@ const Index = () => {
               <h1 className="mb-6 text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl lg:text-6xl">
                 Translate Oncology Initiative
               </h1>
-              <p className="mb-8 text-xl text-primary-foreground/90 sm:text-2xl">
-                Bridging research and practice to improve cancer care worldwide
-              </p>
+              <div className="mb-8 h-16 sm:h-12 flex items-center justify-center">
+                <p 
+                  key={currentMessageIndex}
+                  className="text-xl text-primary-foreground/90 sm:text-2xl animate-fade-in text-center"
+                >
+                  {bannerMessages[currentMessageIndex].text}
+                </p>
+              </div>
               <div className="flex flex-wrap justify-center gap-4">
                 <a
                   href="#our-story"
